@@ -20,8 +20,6 @@ public class DatabaseConnection {
 		}
 		return con;
 	}
-	public static void main(String[] args) {
-		givemePower();
-	}
+	
 
 }

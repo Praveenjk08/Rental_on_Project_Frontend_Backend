@@ -1,25 +1,31 @@
 package com.servlet.Dto;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class User {
+	    private int u_id;
+		
 		private String fullname;
 		private String email;
-		private int pass;
+		private String pass;
 		private long phone;
-		private LocalDateTime currDateTime;
+		private Timestamp currDateTime;
 		
 		public User() {
 			
 		}
 		
-		public User(String fullname, String email, int pass, long phone, LocalDateTime currDateTime) {
+		
+		
+
+		public User(String fullname, String email, String pass, long phone) {
 			super();
 			this.fullname = fullname;
 			this.email = email;
 			this.pass = pass;
 			this.phone = phone;
-			this.currDateTime = currDateTime;
+			
 		}
 		public String getFullname() {
 			return fullname;
@@ -33,10 +39,10 @@ public class User {
 		public void setEmail(String email) {
 			this.email = email;
 		}
-		public int getPass() {
+		public String getPass() {
 			return pass;
 		}
-		public void setPass(int pass) {
+		public void setPass(String pass) {
 			this.pass = pass;
 		}
 		public long getPhone() {
@@ -45,12 +51,21 @@ public class User {
 		public void setPhone(long phone) {
 			this.phone = phone;
 		}
-		public LocalDateTime getCurrDateTime() {
+		public int getU_id() {
+			return u_id;
+		}
+
+		public void setU_id(int u_id) {
+			this.u_id = u_id;
+		}
+		public Timestamp getCurrDateTime() {
 			return currDateTime;
 		}
-		public void setCurrDateTime(LocalDateTime currDateTime) {
+		public void setCurrDateTime(Timestamp currDateTime) {
 			this.currDateTime = currDateTime;
 		}
+
+		
 		
 		
 
