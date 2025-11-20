@@ -103,7 +103,7 @@ public class UserDaoImlimaenation implements  UserDao{
 			ResultSet res=pst.executeQuery();
 			while (res.next()) {
 				user=new User();
-				System.out.println(res.getInt("user_id"));
+//				System.out.println(res.getInt("user_id"));
 				user.setU_id(res.getInt("user_id"));
 				user.setFullname(res.getString("full_name"));
 				user.setEmail(res.getString("email"));
@@ -138,6 +138,58 @@ public class UserDaoImlimaenation implements  UserDao{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return false;
+	}
+
+	@Override
+	public User findUserById(int empid) {
+		String find="select * from users where user_id=?";
+		User user=null;
+		con=DatabaseConnection.givemePower();
+		try {
+			pst=con.prepareStatement(find);
+			pst.setInt(1, empid);
+			ResultSet res=pst.executeQuery();
+			if(res.next())
+			{
+				user=new User();
+				user.setU_id(res.getInt("user_id"));
+				user.setFullname(res.getString("full_name"));
+				user.setEmail(res.getString("email"));
+				user.setPass(res.getString("password"));
+				user.setPhone(res.getLong("phone_number"));
+				user.setCurrDateTime(res.getTimestamp("created_at"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return user;
+	}
+
+	@Override
+	public boolean updateUser(User user) {
+		String update="update users set full_name=?, email=?, password=?, phone_number=? where user_id=?";
+		con=DatabaseConnection.givemePower();
+		try {
+			pst=con.prepareStatement(update);
+			pst.setString(1, user.getFullname());
+			pst.setString(2,user.getEmail());
+			pst.setString(3, user.getPass());
+			pst.setLong(4, user.getPhone());
+			pst.setInt(5, user.getU_id());
+			int count=pst.executeUpdate();
+			if(count>0)
+			{
+				return true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		return false;
 	}

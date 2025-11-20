@@ -9,5 +9,7 @@ public interface UserDao {
 	public User isLogin(String email,String pass);
 	public List<User> getUserDetails();
 	public boolean isDelete(int uid);
+	public User findUserById(int empid);
+	public boolean updateUser(User user);
 
 }

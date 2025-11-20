@@ -18,6 +18,6 @@
 
 </h2>
 <a href="adminreg.jsp">Admin</a>
-<a href="userdetails.jsp">UserDetails</a>
+<a href="viewuser">UserDetails</a>
 </body>
 </html>
