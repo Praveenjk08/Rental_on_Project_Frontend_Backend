@@ -8,10 +8,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.user
+{
+font-size: 40px;
+}
+</style>
 </head>
 <body>
 <%List<User> userlist=(List<User>)request.getAttribute("userlist1"); %>
-<table border="1" cellspacing="5px" >
+<table border="1" cellspacing="5px"  cellpadding="10px" >
+
+<tr>
+<td colspan="6" style="text-align: center;" class="user">User_Details </td>
+</tr>
 
 <tr>
 <th>User_id</th>
