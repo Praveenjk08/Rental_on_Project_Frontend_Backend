@@ -25,7 +25,7 @@ public class Update1Servlet extends HttpServlet {
 	public Update1Servlet() {
 		udao=new UserDaoImlimaenation();
 	}
-	
+//	Hi Hello
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		int umpid=Integer.parseInt(req.getParameter("uid"));
