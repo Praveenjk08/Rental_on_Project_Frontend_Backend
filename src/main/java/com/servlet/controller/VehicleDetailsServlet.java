@@ -3,6 +3,7 @@ package com.servlet.controller;
 import java.io.IOException;
 import java.util.List;
 
+import com.mysql.cj.Session;
 import com.servlet.Dao.VehicleDao;
 import com.servlet.Dao.VehicleDaoImpliment;
 import com.servlet.Dto.Vehicles;
@@ -12,6 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 @WebServlet("/vehicledetails")
 public class VehicleDetailsServlet  extends HttpServlet{
 
@@ -31,7 +33,8 @@ public class VehicleDetailsServlet  extends HttpServlet{
 		
 		if(vlist!=null)
 		{
-			req.setAttribute("vl", vlist);
+			HttpSession session=req.getSession();
+			session.setAttribute("vl", vlist);
 			
 			req.getRequestDispatcher("Vechicledetails.jsp").forward(req, resp);
 		}

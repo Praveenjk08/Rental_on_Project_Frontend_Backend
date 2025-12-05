@@ -23,5 +23,8 @@
  <a href="viewuser1?view=<%=user1.getU_id()%>">UserDetails</a>
  
  <a href="vehicledetails">VehicleDetails</a>
+ <%-- <a href="LogoutUser">Logout</a> --%>
+ <a href="<%=request.getContextPath()%>/LogoutUser">Logout</a>
+ 
 </body>
 </html>
