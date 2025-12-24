@@ -12,5 +12,6 @@
 <h1>Admin Page</h1>
 <h2>Welcome The king admin,<%=admin.getAdmin_Fullname()%></h2>
 <a href="viewuser">Employee</a>
+
 </body>
 </html>

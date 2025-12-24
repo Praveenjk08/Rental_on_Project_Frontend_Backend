@@ -1,20 +1,15 @@
 package com.servlet.Dao;
 
-import java.security.Timestamp;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import com.servlet.Db.DatabaseConnection;
 import com.servlet.Dto.User;
-import com.servlet.dbutil.DbConnection;
-import java.sql.Statement;
 
 public class UserDaoImlimaenation implements  UserDao{
 	Connection con=null;
@@ -95,6 +90,7 @@ public class UserDaoImlimaenation implements  UserDao{
 	public List<User> getUserDetails() {
 		
 		List<User> userlist=new ArrayList<User>();
+		
 		User user=null;
 		String deatils="select * from users";
 		con=DatabaseConnection.givemePower();

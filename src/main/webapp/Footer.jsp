@@ -3,50 +3,75 @@
 <head>
 <meta charset="UTF-8">
 
-<style>
-    .footer {
-        width: 100%;
-        background: #2c3e50;
-        padding: 35px 20px;
-        color: #ecf0f1;
-        text-align: center;
-        margin-top: 50px;
-        font-family: Arial, sans-serif;
-    }
+<style >
+.footer {
+    width: 100%;
+    background: #111827; /* professional dark */
+    padding: 40px 20px;
+    color: #d1d5db;
+    text-align: center;
+    font-family: "Segoe UI", Arial, sans-serif;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-    .footer h3 {
-        margin-top: 0;
-        margin-bottom: 10px;
-        color: #f1c40f;
-        font-size: 22px;
-    }
+.footer h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #facc15;
+    font-size: 21px;
+    font-weight: 600;
+}
 
-    .footer-section {
-        margin-bottom: 20px;
-    }
+.footer-section {
+    margin-bottom: 24px;
+}
 
-    .footer p {
-        margin: 5px 0;
-        font-size: 16px;
-    }
+.footer p {
+    margin: 6px 0;
+    font-size: 15px;
+    color: #d1d5db;
+}
 
-    .social-icons a {
-        margin: 0 10px;
-        font-size: 22px;
-        text-decoration: none;
-        color: white;
-        transition: 0.3s;
-    }
+.footer strong {
+    color: #e5e7eb;
+}
 
-    .social-icons a:hover {
-        color: #f1c40f;
-    }
+.social-icons a {
+    margin: 0 12px;
+    font-size: 22px;
+    text-decoration: none;
+    color: #9ca3af;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
 
-    /* Icon styles */
-    .icon {
-        font-size: 24px;
-        vertical-align: middle;
-    }
+.social-icons a:hover {
+    color: #facc15;
+    transform: translateY(-3px);
+}
+.social-icons
+{
+
+display: flex;
+
+}
+
+.icon {
+    font-size: 22px;
+    vertical-align: middle;
+}
+
+/* Copyright text */
+.footer p:last-child {
+    margin-top: 25px;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+
+
 </style>
 
 <!-- Simple CDN for icons -->
@@ -78,10 +103,17 @@
     <div class="footer-section">
         <h3>Follow Me</h3>
         <div class="social-icons">
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram icon"></i></a>
-            <a href="https://github.com" target="_blank"><i class="fab fa-github icon"></i></a>
-            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin icon"></i></a>
-        </div>
+    <a href="https://www.instagram.com" target="_blank">
+        <i class="fab fa-instagram icon"></i>
+    </a>
+    <a href="https://www.facebook.com" target="_blank">
+        <i class="fab fa-facebook-f icon"></i>
+    </a>
+    <a href="https://www.twitter.com" target="_blank">
+        <i class="fab fa-twitter icon"></i>
+    </a>
+</div>
+        
     </div>
 
     <p style="margin-top:20px; font-size:16px;">

@@ -11,11 +11,13 @@
 <body>
 <%User user=(User)session.getAttribute("user"); 
 Booking booking=(Booking)request.getAttribute("id");
+double amount=(Double)request.getAttribute("price");
 %>
 <form action="" method="post">
 
 </form>
 <%=booking.getBook_Id()%>
 Hello
+<%=amount%>
 </body>
 </html>

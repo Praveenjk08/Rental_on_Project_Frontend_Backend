@@ -2,45 +2,82 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>Rental Service</title>
 
 <style>
-    .navbar {
-        width: 100%;
-        background: #2c3e50;
-        padding: 15px 25px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        color: white;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        height: 100px;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
 
-    .navbar .logo {
-        font-size: 24px;
-        font-weight: bold;
-        letter-spacing: 1px;
-    }
+.navbar {
+    width: 100%;
+    height: 80px;
+    background-color: #1f2933;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
 
-    .navbar-links a {
-        color: white;
-        text-decoration: none;
-        margin-left: 25px;
-        font-size: 17px;
-        transition: 0.3s;
-    }
+.logo-box {
+    display: flex;
+    align-items: center;
+}
 
-    .navbar-links a:hover {
-        color: #f1c40f;
-    }
+.logo-box img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #e5e7eb;
+    font-size: 16px;
+    margin-left: 28px;
+    position: relative;
+}
+img
+{
+backgroun
+}
+
+.navbar-links a:hover {
+    color: #facc15;
+}
+
+h1 {
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 25px;
+}
+
+h1:hover {
+    color: black;
+    transform: scale(1.05);
+}
+
+
 </style>
-
 </head>
+
 <body>
 
 <div class="navbar">
-    <div class="logo">Rental Service</div>
 
+    <!-- LOGO IMAGE -->
+    <div class="logo-box">
+        <a href="index.jsp">
+        
+            <img src="image/rentalvehiclelogo.jpg" alt="Vehicle Rental Logo">
+        </a>
+        <h1 style="color:orange ">Rental Vehcile App</h1>
+    </div>
+
+    <!-- LINKS -->
     <div class="navbar-links">
         <a href="index.jsp">Home</a>
         <a href="Register.jsp">Register</a>
@@ -48,6 +85,7 @@
         <a href="adminreg.jsp">Admin Register</a>
         <a href="adminlogin.jsp">Admin Login</a>
     </div>
+
 </div>
 
 </body>

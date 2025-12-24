@@ -33,15 +33,19 @@ public class BookingFormServlet extends HttpServlet{
 		double amount=Double.parseDouble(req.getParameter("am"));
 		String gtype=req.getParameter("govern-type");
 		String gid=req.getParameter("gid");
+		int days=Integer.parseInt(req.getParameter("days"));
+				
 		
 		Booking booking=new Booking(userid, vid, sdate, edate, amount, gtype, gid);
 		int isBook=bdao.isBooking(booking);
 		Booking b=new Booking();
 		b.setBook_Id(isBook);
 		System.out.println(isBook);
+		double calctingdays=amount*days;
 		if(isBook>0)
 		{
 			req.setAttribute("id", b);
+			req.setAttribute("price", calctingdays);
 			req.getRequestDispatcher("Payment.jsp").forward(req, resp);
 			
 		}

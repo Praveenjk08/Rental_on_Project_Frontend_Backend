@@ -1,6 +1,6 @@
 <%@page import="com.servlet.Dto.Vehicles"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -111,6 +111,7 @@
         <img src="image/<%=vehicles.getImage_url()%>">
 
         <!-- Vehicle Info -->
+        <div class="info-item"><span class="label">ID:</span> <%=vehicles.getVehicle_id()%></div>
         <div class="info-item"><span class="label">Brand:</span> <%=vehicles.getBrand()%></div>
         <div class="info-item"><span class="label">Model:</span> <%=vehicles.getModel()%></div>
         <div class="info-item"><span class="label">Type:</span> <%=vehicles.getVehicle_type()%></div>
@@ -122,7 +123,7 @@
         <div class="info-item"><span class="label">Status:</span> <%=vehicles.getStatus()%></div>
 
         <!-- Buttons -->
-        <a href="BookingForm.jsp" class="btn book-btn">Book Now</a>
+        <a href="BookingForm.jsp?vid=<%=vehicles.getVehicle_id()%>&price=<%=vehicles.getPrice_per_day()%>" class="btn book-btn">Book Now</a>
         <a href="Vechicle1.jsp" class="btn details-btn">View Details</a>
 
     </div>
