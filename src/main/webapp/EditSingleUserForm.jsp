@@ -11,111 +11,226 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
+/* ========== RESET ========== */
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
-/* SAME BACKGROUND IMAGE */
 body{
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background:
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("https://images.unsplash.com/photo-1502877338535-766e1452684a");
-    background-size: cover;
-    background-position: center;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#ffffff;
 }
 
-/* Form Card */
+/* ========== PAGE WRAPPER ========== */
+.edit-page{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+/* BACKGROUND IMAGE (OPACITY CONTROL) */
+.edit-page::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("image/carbg.jpg") center/cover no-repeat;
+  opacity:0.25;
+  z-index:-2;
+}
+
+/* GRADIENT OVERLAY */
+.edit-page::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    rgba(224,242,254,0.65),
+    rgba(252,231,243,0.65)
+  );
+  z-index:-1;
+}
+
+/* ========== FORM CARD ========== */
 form{
-    width: 420px;
-    background: rgba(255,255,255,0.95);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  width:420px;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(10px);
+  padding:35px 35px 30px;
+  border-radius:22px;
+
+  box-shadow:0 25px 50px rgba(0,0,0,0.2);
+  transition:0.4s ease;
 }
 
-/* User ID */
-form > :first-child{
-    font-weight: 600;
-    color: #ff5722;
-    margin-bottom: 10px;
-    display: block;
+/* HOVER */
+form:hover{
+  transform:translateY(-6px);
+  box-shadow:0 40px 80px rgba(0,0,0,0.25);
 }
 
-/* Labels */
-form br{
-    line-height: 2;
+/* ========== TITLE ========== */
+.form-title{
+  text-align:center;
+  margin-bottom:20px;
 }
 
-/* Inputs */
+.form-title h2{
+  font-size:26px;
+  background:linear-gradient(90deg,#38bdf8,#f472b6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.form-title p{
+  font-size:14px;
+  color:#475569;
+}
+
+/* USER ID */
+.user-id{
+  text-align:center;
+  font-weight:600;
+  color:#ec4899;
+  margin-bottom:12px;
+}
+
+/* ========== INPUTS ========== */
+label{
+  font-size:13px;
+  color:#334155;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="tel"]{
-    width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    outline: none;
-    transition: 0.3s;
+  width:100%;
+  padding:12px 14px;
+  margin-top:6px;
+  margin-bottom:14px;
+  border-radius:14px;
+  border:1px solid #cbd5f5;
+  outline:none;
+  transition:0.3s ease;
 }
 
 input:focus{
-    border-color: #ff9800;
-    box-shadow: 0 0 6px rgba(255,152,0,0.6);
+  border-color:#38bdf8;
+  box-shadow:0 0 0 2px rgba(56,189,248,0.25);
 }
 
-/* Submit button */
-input[type="submit"]{
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(135deg, #ff9800, #ff5722);
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
+/* ========== BUTTONS ========== */
+.actions{
+  display:flex;
+  gap:14px;
+  margin-top:15px;
 }
 
-input[type="submit"]:hover{
-    box-shadow: 0 10px 20px rgba(255,87,34,0.5);
-    transform: translateY(-2px);
+/* UPDATE BUTTON */
+.actions input[type="submit"]{
+  flex:1;
+  padding:12px;
+  border:none;
+  border-radius:22px;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  color:#ffffff;
+
+  background:linear-gradient(135deg,#38bdf8,#f472b6);
+  box-shadow:0 12px 25px rgba(0,0,0,0.2);
+  transition:0.3s ease;
+}
+
+.actions input[type="submit"]:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 35px rgba(0,0,0,0.25);
+}
+
+/* BACK BUTTON */
+.back-btn{
+  flex:1;
+  text-align:center;
+  text-decoration:none;
+  padding:12px;
+  border-radius:22px;
+  font-size:15px;
+  font-weight:500;
+
+  background:linear-gradient(135deg,#bae6fd,#fbcfe8);
+  color:#1f2937;
+
+  box-shadow:0 10px 22px rgba(0,0,0,0.15);
+  transition:0.3s ease;
+}
+
+.back-btn:hover{
+  background:linear-gradient(135deg,#38bdf8,#f472b6);
+  color:white;
+  transform:translateY(-2px);
+}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:480px){
+  form{
+    width:90%;
+    padding:30px 22px;
+  }
 }
 </style>
-
 </head>
+
 <body>
 
-<%User user=(User)request.getAttribute("editusers");%>
+<%
+User user = (User)request.getAttribute("editusers");
+%>
 
-<form action="update1" method="get">
-<%=user.getU_id()%>
-<input type="hidden" placeholder="Enter the user id" name="uid" value="<%=user.getU_id()%>"><br>
+<div class="edit-page">
 
-UserName<br>
-<input type="text" placeholder="Enter the user name" name="name" value="<%=user.getFullname()%>"><br>
+  <form action="update1" method="get">
 
-UserEmail <br>
-<input type="email" placeholder="Enter the user mail" name="email" value="<%=user.getEmail()%>"><br>
+    <div class="form-title">
+      <h2>Edit Profile</h2>
+      <p>Update your personal information</p>
+    </div>
 
-UserPassword <br>
-<input type="password" placeholder="Enter your password" name="pass" value="<%=user.getPass()%>"><br>
+    <div class="user-id">
+      User ID : <%= user.getU_id() %>
+    </div>
 
-UserPhoneNumber <br>
-<input type="tel" placeholder="enter your phone" name="ph" value="<%=user.getPhone()%>">
-<br>
+    <input type="hidden" name="uid" value="<%=user.getU_id()%>">
 
-<input type="submit" value="Edit1">
-</form>
+    <label>User Name</label>
+    <input type="text" name="name" value="<%=user.getFullname()%>" required>
+
+    <label>Email</label>
+    <input type="email" name="email" value="<%=user.getEmail()%>" required>
+
+    <label>Password</label>
+    <input type="password" name="pass" value="<%=user.getPass()%>" required>
+
+    <label>Phone Number</label>
+    <input type="tel" name="ph" value="<%=user.getPhone()%>" required>
+
+    <div class="actions">
+      <input type="submit" value="Update Profile">
+      <a href="admindash.jsp" class="back-btn">Back to Dashboard</a>
+    </div>
+
+  </form>
+
+</div>
 
 </body>
 </html>

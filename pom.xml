@@ -33,11 +33,11 @@
     <version>4.0.1</version>
     <scope>provided</scope>
 </dependency>
-  	<dependency>
+ <!--	<dependency>
   		<groupId>com.servlet</groupId>
   		<artifactId>Bike</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
+  	</dependency>       --> 
   </dependencies>
   <build>
     <finalName>Rental_On_Project</finalName>
