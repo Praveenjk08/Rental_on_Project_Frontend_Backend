@@ -1,124 +1,221 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 
-<style >
-.footer {
-    width: 100%;
-    background: #111827; /* professional dark */
-    padding: 40px 20px;
-    color: #d1d5db;
-    text-align: center;
-    font-family: "Segoe UI", Arial, sans-serif;
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+<style>
+/* ========== FOOTER WRAPPER ========== */
+
+
+.footer{
+    width:100%;
+    padding:50px 30px;
+    background:linear-gradient(135deg,#e0f2fe,#fce7f3);
+
+  display:flex;
+    flex-direction:row;
+   
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:30px;
+
+    font-family:"Poppins","Segoe UI",sans-serif;
+    color:#1f2937;
+    box-shadow:0 -12px 35px rgba(0,0,0,0.15);
 }
 
-.footer h3 {
-    margin-top: 0;
-    margin-bottom: 12px;
-    color: #facc15;
-    font-size: 21px;
-    font-weight: 600;
+/* ========== FOOTER SECTIONS ========== */
+.footer-section{
+    max-width:260px;
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(10px);
+    padding:22px;
+    border-radius:20px;
+
+    box-shadow:0 15px 30px rgba(0,0,0,0.15);
+    transition:0.35s ease;
+
+    display:flex;
+    flex-direction:column;
+    gap:6px;
 }
 
-.footer-section {
-    margin-bottom: 24px;
+/* ORDER */
+.footer-section:nth-child(1){ order:1; }
+.footer-section:nth-child(2){ order:2; }
+.footer-section:nth-child(3){ order:3; }
+.footer-section:nth-child(4){ order:4; }
+
+.footer-section:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 55px rgba(0,0,0,0.22);
 }
 
-.footer p {
-    margin: 6px 0;
-    font-size: 15px;
-    color: #d1d5db;
+/* HEADINGS */
+.footer-section h3{
+    margin-bottom:10px;
+    font-size:20px;
+    font-weight:600;
+
+    background:linear-gradient(90deg,#38bdf8,#f472b6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-.footer strong {
-    color: #e5e7eb;
+/* TEXT */
+.footer-section p,
+.footer-section a{
+    margin:4px 0;
+    font-size:14px;
+    color:#334155;
+    text-decoration:none;
+    line-height:1.6;
 }
 
-.social-icons a {
-    margin: 0 12px;
-    font-size: 22px;
-    text-decoration: none;
-    color: #9ca3af;
-    transition: color 0.3s ease, transform 0.3s ease;
+/* LINKS */
+.footer-section a:hover{
+    color:#0f172a;
+    text-decoration:underline;
 }
 
-.social-icons a:hover {
-    color: #facc15;
-    transform: translateY(-3px);
-}
-.social-icons
-{
-
-display: flex;
-
+/* ========== SOCIAL ICONS ========== */
+.social-icons{
+    display:flex;
+    gap:14px;
+    margin-top:10px;
 }
 
-.icon {
-    font-size: 22px;
-    vertical-align: middle;
+.social-icons a{
+    width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+    font-size:18px;
+    color:#1f2937;
+
+    background:linear-gradient(135deg,#bae6fd,#fbcfe8);
+    box-shadow:0 8px 18px rgba(0,0,0,0.18);
+    transition:0.35s ease;
 }
 
-/* Copyright text */
-.footer p:last-child {
-    margin-top: 25px;
-    font-size: 14px;
-    color: #9ca3af;
+.social-icons a:hover{
+    background:linear-gradient(135deg,#38bdf8,#f472b6);
+    color:#ffffff;
+    transform:translateY(-4px);
+}
+
+/* ========== COPYRIGHT ========== */
+.footer-copy{
+    width:100%;
+    order:99;                  /* ⭐ KEY LINE */
+    margin-top:30px;
+    padding-top:18px;
+
+    text-align:center;
+    font-size:15px;
+    color:#475569;
+
+    border-top:1px solid rgba(0,0,0,0.15);
 }
 
 
+.footer-copy span{
+    font-weight:bold;
+    background:linear-gradient(90deg,#38bdf8,#f472b6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
+/* ========== RESPONSIVE ========== */
+@media(max-width:900px){
+    .footer{
+        justify-content:center;
+        text-align:center;
+    }
+
+    .footer-section{
+        max-width:95%;
+    }
+
+    .social-icons{
+        justify-content:center;
+    }
+}
 </style>
 
-<!-- Simple CDN for icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- ICON CDN -->
+<link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
+
 <body>
 
 <div class="footer">
 
+    <!-- ABOUT -->
     <div class="footer-section">
-        <h3>Rental Service Platform</h3>
+        <h3>🚗 Rental Service</h3>
         <p>Reliable, safe, and convenient vehicle renting experience.</p>
-        <p>Providing trusted service with a smooth booking process.</p>
+        <p>Cars • Bikes • Cycles for every journey.</p>
     </div>
 
+    <!-- CONTACT -->
     <div class="footer-section">
-        <h3>Contact Us</h3>
-        <p>Email: <strong>support@rentalservice.com</strong></p>
-        <p>Phone: <strong>+91 98765 43210</strong></p>
+        <h3>📞 Contact Us</h3>
+
+        <p>
+            📧 Email:
+            <a href="mailto:support@rentalservice.com">
+                support@rentalservice.com
+            </a>
+        </p>
+
+        <p>
+            📱 Phone:
+            <a href="tel:+919876543210">
+                +91 98765 43210
+            </a>
+        </p>
+        <p style="font-size:12px;color:#64748b;">
+            (Tap to call • Long press to copy)
+        </p>
     </div>
 
+    <!-- ADDRESS -->
     <div class="footer-section">
-        <h3>Address</h3>
-        <p>BTM Layout, Bengaluru, Karnataka</p>
-        <p>India - 560076</p>
+        <h3>📍 Address</h3>
+        <p>BTM Layout</p>
+        <p>Bengaluru, Karnataka</p>
+        <p>India – 560076</p>
     </div>
 
+    <!-- SOCIAL -->
     <div class="footer-section">
-        <h3>Follow Me</h3>
+        <h3>🌐 Follow Us</h3>
         <div class="social-icons">
-    <a href="https://www.instagram.com" target="_blank">
-        <i class="fab fa-instagram icon"></i>
-    </a>
-    <a href="https://www.facebook.com" target="_blank">
-        <i class="fab fa-facebook-f icon"></i>
-    </a>
-    <a href="https://www.twitter.com" target="_blank">
-        <i class="fab fa-twitter icon"></i>
-    </a>
-</div>
-        
+            <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank" title="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
     </div>
 
-    <p style="margin-top:20px; font-size:16px;">
-        � 2025 | Designed & Developed by <span style="color:#f1c40f; font-weight:bold;">JK Khandgonda</span>
-    </p>
+    <!-- COPYRIGHT -->
+    <div class="footer-copy">
+        © 2025 | Designed & Developed by <span>JK Khandgonda</span> 💙
+    </div>
 
 </div>
 

@@ -10,127 +10,242 @@
 <title>Vehicles</title>
 
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f4f6f9;
-        margin: 0;
-        padding: 20px;
-    }
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+    margin:0;
+    padding:20px;
+}
 
-    h1 {
-        text-align: center;
-        color: #2c3e50;
-        margin-bottom: 25px;
-    }
+/* ===== TOP BAR ===== */
+.top-bar{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items:center;
+    margin-bottom:30px;
+}
 
-    /* Grid layout */
-    .vehicle-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
-        padding: 10px;
-    }
+.top-bar h1{
+    color:#2c3e50;
+}
 
-    /* Card */
-    .vehicle-card {
-        background: white;
-        border-radius: 12px;
-        padding: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        transition: 0.3s;
-    }
+/* SEARCH */
+.search-box{
+    display:flex;
+    justify-content:center;
+    gap:6px;
+}
 
-    .vehicle-card:hover {
-        transform: scale(1.03);
-    }
+.search-box input{
+    width:260px;
+    padding:10px 14px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    outline:none;
+}
 
-    .vehicle-card img {
-        width: 100%;
-        height: 160px;
-        object-fit: cover;
-        border-radius: 10px;
-        border: 2px solid #e0e0e0;
-        margin-bottom: 10px;
-    }
+/* BACK BUTTON */
+.back-btn{
+    text-align:right;
+}
 
-    .info-item {
-        margin: 6px 0;
-        font-size: 15px;
-        color: #343434;
-    }
+.back-btn a{
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:6px;
+    background:#34495e;
+    color:white;
+    font-size:14px;
+}
 
-    .label {
-        font-weight: bold;
-        color: #2c3e50;
-    }
+.back-btn a:hover{
+    background:#2c3e50;
+}
 
-    /* Buttons */
-    .btn {
-        display: inline-block;
-        padding: 8px 12px;
-        border-radius: 6px;
-        text-decoration: none;
-        color: white;
-        font-size: 14px;
-        margin-top: 10px;
-        transition: 0.3s;
-    }
+/* ===== VEHICLE GRID ===== */
+.vehicle-container{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);   /* 🔥 3 cards per row */
+    gap:30px;
+}
 
-    .book-btn {
-        background: #27ae60;
-    }
-    .book-btn:hover {
-        background: #1e8449;
-    }
+/* CARD */
+.vehicle-card{
+    background:white;
+    border-radius:14px;
+    padding:18px;
+    min-height:480px;                         /* 🔥 height increased */
+    box-shadow:0 6px 20px rgba(0,0,0,0.12);
+    transition:0.3s ease;
+}
 
-    .details-btn {
-        background: #2980b9;
-        margin-left: 5px;
+.vehicle-card:hover{
+    transform:translateY(-6px);
+}
+
+/* IMAGE */
+.vehicle-card img{
+    width:100%;
+    height:200px;                             /* 🔥 bigger image */
+    object-fit:cover;
+    border-radius:12px;
+    border:2px solid #e0e0e0;
+    margin-bottom:12px;
+}
+
+/* INFO */
+.info-item{
+    margin:6px 0;
+    font-size:15px;
+    color:#343434;
+}
+
+.label{
+    font-weight:bold;
+    color:#2c3e50;
+}
+
+/* BUTTONS */
+.btn{
+    padding:10px 14px;
+    border-radius:6px;
+    border:none;
+    cursor:pointer;
+    font-size:14px;
+    margin-top:12px;
+}
+
+.book-btn{
+    background:#27ae60;
+    color:white;
+}
+
+.book-btn:hover{
+    background:#1e8449;
+}
+
+.details-btn{
+    background:#2980b9;
+    color:white;
+    margin-left:6px;
+}
+
+.details-btn:hover{
+    background:#1f618d;
+}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+    .vehicle-container{
+        grid-template-columns:repeat(2,1fr);
     }
-    .details-btn:hover {
-        background: #1f618d;
+}
+
+@media(max-width:650px){
+    .vehicle-container{
+        grid-template-columns:1fr;
     }
+    .top-bar{
+        grid-template-columns:1fr;
+        gap:15px;
+        text-align:center;
+    }
+    .back-btn{
+        text-align:center;
+    }
+}
 </style>
-
 </head>
+
 <body>
 
 <%
-    List<Vehicles> vlist = (List<Vehicles>) session.getAttribute("vl");
+List<Vehicles> vlist = (List<Vehicles>) session.getAttribute("vl");
 %>
 
-<h1>Available Vehicles</h1>
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
 
-<div class="vehicle-container">
+    <h1>Available Vehicles</h1>
 
-<% for (Vehicles vehicles : vlist) { %>
+    <div class="search-box">
+        <input type="text" id="searchText" placeholder="Search by brand, model, color">
+    </div>
 
-    <div class="vehicle-card">
+    <div class="back-btn">
+        <a href="dash.jsp">← Back to Dashboard</a>
+    </div>
 
-        <!-- Vehicle Image -->
-        <img src="image/<%=vehicles.getImage_url()%>">
+</div>
 
-        <!-- Vehicle Info -->
-        <div class="info-item"><span class="label">ID:</span> <%=vehicles.getVehicle_id()%></div>
-        <div class="info-item"><span class="label">Brand:</span> <%=vehicles.getBrand()%></div>
-        <div class="info-item"><span class="label">Model:</span> <%=vehicles.getModel()%></div>
+<!-- ===== VEHICLE LIST ===== -->
+<div class="vehicle-container" id="vehicleContainer">
+
+<% for(Vehicles vehicles : vlist){ %>
+
+<div class="vehicle-card">
+
+    <img src="image/<%=vehicles.getImage_url()%>">
+
+    <!-- MINIMUM DETAILS -->
+    <div class="info-item"><span class="label">ID:</span> <%=vehicles.getVehicle_id()%></div>
+    <div class="info-item"><span class="label">Brand:</span> <%=vehicles.getBrand()%></div>
+    <div class="info-item"><span class="label">Color:</span> <%=vehicles.getColor()%></div>
+    <div class="info-item"><span class="label">Model:</span> <%=vehicles.getModel()%></div>
+
+    <!-- EXTRA DETAILS -->
+    <div class="extra-details" style="display:none;">
         <div class="info-item"><span class="label">Type:</span> <%=vehicles.getVehicle_type()%></div>
         <div class="info-item"><span class="label">Fuel:</span> <%=vehicles.getFuel_type()%></div>
         <div class="info-item"><span class="label">Mileage:</span> <%=vehicles.getMilage()%></div>
         <div class="info-item"><span class="label">Year:</span> <%=vehicles.getYear()%></div>
-        <div class="info-item"><span class="label">Color:</span> <%=vehicles.getColor()%></div>
         <div class="info-item"><span class="label">Price/Day:</span> ₹<%=vehicles.getPrice_per_day()%></div>
         <div class="info-item"><span class="label">Status:</span> <%=vehicles.getStatus()%></div>
-
-        <!-- Buttons -->
-        <a href="BookingForm.jsp?vid=<%=vehicles.getVehicle_id()%>&price=<%=vehicles.getPrice_per_day()%>" class="btn book-btn">Book Now</a>
-        <a href="Vechicle1.jsp" class="btn details-btn">View Details</a>
-
     </div>
+
+    <!-- ACTIONS -->
+    <a class="btn book-btn"
+       href="BookingForm.jsp?vid=<%=vehicles.getVehicle_id()%>&price=<%=vehicles.getPrice_per_day()%>">
+       Book Now
+    </a>
+
+    <button class="btn details-btn" onclick="toggleDetails(this)">
+        View Details
+    </button>
+
+</div>
 
 <% } %>
 
 </div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+/* TOGGLE DETAILS */
+function toggleDetails(btn){
+    const extra = btn.parentElement.querySelector(".extra-details");
+    if(extra.style.display === "none"){
+        extra.style.display = "block";
+        btn.innerText = "Hide Details";
+    }else{
+        extra.style.display = "none";
+        btn.innerText = "View Details";
+    }
+}
+
+/* SEARCH FILTER (NO 404) */
+document.getElementById("searchText").addEventListener("keyup", function(){
+    const value = this.value.toLowerCase();
+    const cards = document.querySelectorAll(".vehicle-card");
+
+    cards.forEach(card=>{
+        card.style.display =
+            card.innerText.toLowerCase().includes(value)
+            ? "block"
+            : "none";
+    });
+});
+</script>
 
 </body>
 </html>
