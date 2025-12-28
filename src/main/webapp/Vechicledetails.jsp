@@ -205,7 +205,7 @@ List<Vehicles> vlist = (List<Vehicles>) session.getAttribute("vl");
 
     <!-- ACTIONS -->
     <a class="btn book-btn"
-       href="BookingForm.jsp?vid=<%=vehicles.getVehicle_id()%>&price=<%=vehicles.getPrice_per_day()%>">
+        href="BookingForm.jsp?vid=<%=vehicles.getVehicle_id()%>&price=<%=vehicles.getPrice_per_day()%>&name=<%=vehicles.getBrand()%>&model=<%=vehicles.getModel()%>&type=<%=vehicles.getVehicle_type()%>" class="btn book-btn">Book Now</a>
        Book Now
     </a>
 

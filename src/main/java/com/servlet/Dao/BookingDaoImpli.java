@@ -15,7 +15,8 @@ public class BookingDaoImpli implements BooKingDao {
 	@Override
 	public int isBooking(Booking booking) {
 		int bookingId=0;
-		String insert="insert into bookings1 (user_id, vehicle_id,booking_date,start_date,end_date,total_amount, gov_id_type, gov_id_number) values (?,?,now(),?,?,?,?,?)";
+		String insert="insert into bookings1 (user_id, vehicle_id,booking_date,start_date,end_date,total_amount, gov_id_type, gov_id_number,numberofdays,fullamount) values (?,?,now(),?,?,?,?,?,?,?)";
+		double fullamount=booking.getAmount()*booking.getNumberodays();
 		con=DatabaseConnection.givemePower();
 		try {
 			pst=con.prepareStatement(insert,Statement.RETURN_GENERATED_KEYS);
@@ -26,6 +27,8 @@ public class BookingDaoImpli implements BooKingDao {
 			pst.setDouble(5, booking.getAmount());
 			pst.setString(6, booking.getGovernment_IdType());
 			pst.setString(7, booking.getGovernment_id());
+			pst.setInt(8, booking.getNumberodays());
+			pst.setDouble(9, fullamount);
 			
 			int count=pst.executeUpdate();
 			if(count>0)

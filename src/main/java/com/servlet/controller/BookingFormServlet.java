@@ -34,9 +34,11 @@ public class BookingFormServlet extends HttpServlet{
 		String gtype=req.getParameter("govern-type");
 		String gid=req.getParameter("gid");
 		int days=Integer.parseInt(req.getParameter("days"));
+		
 				
 		
 		Booking booking=new Booking(userid, vid, sdate, edate, amount, gtype, gid);
+		booking.setNumberodays(days);
 		int isBook=bdao.isBooking(booking);
 		Booking b=new Booking();
 		b.setBook_Id(isBook);

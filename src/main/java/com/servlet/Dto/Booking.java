@@ -16,6 +16,8 @@ public class Booking {
 	private String government_id;
 	private String booking_status;
 	private String payment_status;
+	private int numberodays;
+	private double fullbal;
 	
 	
 	public Booking() {
@@ -112,6 +114,25 @@ public class Booking {
 	public void setPayment_status(String payment_status) {
 		this.payment_status = payment_status;
 	}
+	public int getNumberodays() {
+		return numberodays;
+	}
+
+
+	public void setNumberodays(int numberodays) {
+		this.numberodays = numberodays;
+	}
+
+
+	public double getFullbal() {
+		return fullbal;
+	}
+
+
+	public void setFullbal(double fullbal) {
+		this.fullbal = fullbal;
+	}
+	
 	
 
 }
