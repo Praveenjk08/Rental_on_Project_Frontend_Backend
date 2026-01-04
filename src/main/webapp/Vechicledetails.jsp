@@ -65,7 +65,7 @@ body{
 /* ===== VEHICLE GRID ===== */
 .vehicle-container{
     display:grid;
-    grid-template-columns: repeat(3, 1fr);   /* 🔥 3 cards per row */
+    grid-template-columns: repeat(3, 1fr);
     gap:30px;
 }
 
@@ -74,7 +74,7 @@ body{
     background:white;
     border-radius:14px;
     padding:18px;
-    min-height:480px;                         /* 🔥 height increased */
+    min-height:480px;
     box-shadow:0 6px 20px rgba(0,0,0,0.12);
     transition:0.3s ease;
 }
@@ -86,7 +86,7 @@ body{
 /* IMAGE */
 .vehicle-card img{
     width:100%;
-    height:200px;                             /* 🔥 bigger image */
+    height:200px;
     object-fit:cover;
     border-radius:12px;
     border:2px solid #e0e0e0;
@@ -165,7 +165,6 @@ List<Vehicles> vlist = (List<Vehicles>) session.getAttribute("vl");
 
 <!-- ===== TOP BAR ===== -->
 <div class="top-bar">
-
     <h1>Available Vehicles</h1>
 
     <div class="search-box">
@@ -175,7 +174,6 @@ List<Vehicles> vlist = (List<Vehicles>) session.getAttribute("vl");
     <div class="back-btn">
         <a href="dash.jsp">← Back to Dashboard</a>
     </div>
-
 </div>
 
 <!-- ===== VEHICLE LIST ===== -->
@@ -187,7 +185,7 @@ List<Vehicles> vlist = (List<Vehicles>) session.getAttribute("vl");
 
     <img src="image/<%=vehicles.getImage_url()%>">
 
-    <!-- MINIMUM DETAILS -->
+    <!-- BASIC INFO -->
     <div class="info-item"><span class="label">ID:</span> <%=vehicles.getVehicle_id()%></div>
     <div class="info-item"><span class="label">Brand:</span> <%=vehicles.getBrand()%></div>
     <div class="info-item"><span class="label">Color:</span> <%=vehicles.getColor()%></div>
@@ -203,11 +201,21 @@ List<Vehicles> vlist = (List<Vehicles>) session.getAttribute("vl");
         <div class="info-item"><span class="label">Status:</span> <%=vehicles.getStatus()%></div>
     </div>
 
-    <!-- ACTIONS -->
-    <a class="btn book-btn"
-        href="BookingForm.jsp?vid=<%=vehicles.getVehicle_id()%>&price=<%=vehicles.getPrice_per_day()%>&name=<%=vehicles.getBrand()%>&model=<%=vehicles.getModel()%>&type=<%=vehicles.getVehicle_type()%>" class="btn book-btn">Book Now</a>
-       Book Now
-    </a>
+    <!-- ACTION BUTTON -->
+    <% if("Available".equalsIgnoreCase(vehicles.getStatus())) { %>
+
+        <a class="btn book-btn"
+           href="BookingForm.jsp?vid=<%=vehicles.getVehicle_id()%>&price=<%=vehicles.getPrice_per_day()%>&name=<%=vehicles.getBrand()%>&model=<%=vehicles.getModel()%>&type=<%=vehicles.getVehicle_type()%>">
+            Book Now
+        </a>
+
+    <% } else { %>
+
+        <button class="btn book-btn" style="background:#7f8c8d; cursor:not-allowed;" disabled>
+            Already Booked
+        </button>
+
+    <% } %>
 
     <button class="btn details-btn" onclick="toggleDetails(this)">
         View Details
@@ -221,7 +229,6 @@ List<Vehicles> vlist = (List<Vehicles>) session.getAttribute("vl");
 
 <!-- ===== JAVASCRIPT ===== -->
 <script>
-/* TOGGLE DETAILS */
 function toggleDetails(btn){
     const extra = btn.parentElement.querySelector(".extra-details");
     if(extra.style.display === "none"){
@@ -233,7 +240,6 @@ function toggleDetails(btn){
     }
 }
 
-/* SEARCH FILTER (NO 404) */
 document.getElementById("searchText").addEventListener("keyup", function(){
     const value = this.value.toLowerCase();
     const cards = document.querySelectorAll(".vehicle-card");

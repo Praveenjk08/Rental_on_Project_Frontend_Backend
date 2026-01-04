@@ -167,7 +167,7 @@ String type = request.getParameter("type");
   <input type="number" name="days" id="days" readonly required>
 
   <label>Price Per Day</label>
-  <input type="number" id="price" value="<%=price%>" readonly>
+  <input type="number"  name="price" id="price" value="<%=price%>" readonly>
 
   <label>Total Amount</label>
   <input type="number" name="am" id="amount" readonly required>

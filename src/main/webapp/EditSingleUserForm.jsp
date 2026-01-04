@@ -225,7 +225,7 @@ User user = (User)request.getAttribute("editusers");
 
     <div class="actions">
       <input type="submit" value="Update Profile">
-      <a href="admindash.jsp" class="back-btn">Back to Dashboard</a>
+      <a href="dash.jsp" class="back-btn">Back to Dashboard</a>
     </div>
 
   </form>

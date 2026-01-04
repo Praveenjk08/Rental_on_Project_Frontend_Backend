@@ -169,8 +169,8 @@ User user = (User) request.getAttribute("userrod");
     <div class="info"><span>Created At:</span> <%= user.getCurrDateTime() %></div>
 
     <div class="actions">
-      <a href="edit1?e1=<%= user.getU_id() %>" class="edit">Edit</a>
-      <a href="dash.jsp" class="back">Back to Dashboard</a>
+      <a href="edit1?e1=<%= user.getU_id() %>" class="edit" onclick="return confirm('Are you sure you want to edit this movie?')">Edit</a>
+      <a href="dash.jsp" class="back" >Back to Dashboard</a>
     </div>
   </div>
 

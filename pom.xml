@@ -26,18 +26,29 @@
     <artifactId>mysql-connector-j</artifactId>
     <version>8.3.0</version>
 </dependency>
+
+
 <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-<dependency>
+<!--<dependency>
     <groupId>javax.servlet</groupId>
     <artifactId>javax.servlet-api</artifactId>
     <version>4.0.1</version>
     <scope>provided</scope>
-</dependency>
- <!--	<dependency>
+</dependency>-->
+	<!-- <dependency>
+    <groupId>com.sun.mail</groupId>
+    <artifactId>jakarta.mail</artifactId>
+    <version>2.0.1</version>
+</dependency> 
+
+ 	<dependency>
   		<groupId>com.servlet</groupId>
   		<artifactId>Bike</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>       --> 
+  
+
+
   </dependencies>
   <build>
     <finalName>Rental_On_Project</finalName>

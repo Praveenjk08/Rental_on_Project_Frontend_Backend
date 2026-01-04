@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import com.servlet.Dao.UserDao;
 import com.servlet.Dao.UserDaoImlimaenation;
+import com.servlet.Db.EmailUtil;
 import com.servlet.Dto.Admin;
 import com.servlet.Dto.User;
 
@@ -42,6 +43,14 @@ public class UserRegisationnServlet extends HttpServlet  {
 		
 		if(isRegiseter==true)
 		{
+//			String subject = "Registration Successful";
+//            String message =
+//                "Hello " + name + ",\n\n" +
+//                "Your registration is successful.\n" +
+//                "Welcome to Vehicle Rental Service.\n\n" +
+//                "Thank you.";
+//
+//            EmailUtil.sendEmail(email, subject, message);
 			Admin admin=new Admin();
 //			admin.setUser_Id(isRegiseter);
 			
